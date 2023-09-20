@@ -1,0 +1,30 @@
+* {
+  margin: 5px 0;
+  padding: 0 10px;
+}
+
+.flex {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+
+.block {
+    border: 1px solid gray;
+}
+
+
+.input {
+  border: 1px solid black;
+  border-radius: 0;
+  height: 18px;
+}
+.input:focus {
+  outline: none;
+}
+.input_left {
+  width: 20px;
+  border-right: 0;
+}
+
