@@ -1,7 +1,7 @@
 # SOLID в контексте React
 
 
-## Single Responsibility Principle (SRP) - Принцып единой ответсвенности
+## Single Responsibility Principle (SRP) - Принцип единой ответсвенности
 
 
 **Для каждого класса/функции/компонента должно быть определено единственное название.**
