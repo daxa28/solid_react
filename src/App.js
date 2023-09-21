@@ -1,12 +1,20 @@
-import React from "react";
+import React, { useState } from "react";
 import TodosPageBefore from "./s_single_responsibility_principle/Before";
 import TodosPageAfter from "./s_single_responsibility_principle/After";
 import InputBefore from "./o_open_closed_principle/Before";
 import InputAfter from "./o_open_closed_principle/After";
-import ButtonBefore from "./l_liskov_substitution/After";
-import ButtonAfter from "./l_liskov_substitution/After";
+import ButtonBefore from "./l_liskov_substitution_principle/After";
+import ButtonAfter from "./l_liskov_substitution_principle/After";
+import DisplayPersonNameBefore from "./i_interface_segregation_principle/Before";
+import DisplayPersonNameAfter from "./i_interface_segregation_principle/After";
 
 function App() {
+  const [user] = useState({ name: "Dasha", age: 22 });
+  const [admin] = useState({
+    personalInfo: { name: "Dima", age: 26 },
+    physicalFeatures: { hairColor: "blonde" },
+  });
+
   function consoleText() {
     console.log("Hello");
   }
@@ -47,6 +55,20 @@ function App() {
         <div className="flex">
           <ButtonBefore icon="Hello" onClick={consoleText} />
           <ButtonAfter icon="Hello" onClick={consoleText} />
+        </div>
+      </div>
+      <div id="interface_segregation" className="block">
+        <h3>Interface Segregation principle</h3>
+        <h4>Принцип разделения инерфейсов</h4>
+        <p>
+          Много интерфейсов специально предназначенных для клиентов, лучше, чем
+          один интерфейс общего назначения.
+        </p>
+        <div className="flex">
+          <DisplayPersonNameBefore user={user} />
+          <DisplayPersonNameBefore admin={admin} />
+          <DisplayPersonNameAfter name={user.name} />
+          <DisplayPersonNameAfter name={admin.personalInfo.name} />
         </div>
       </div>
     </>
