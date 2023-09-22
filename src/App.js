@@ -71,6 +71,18 @@ function App() {
           <DisplayPersonNameAfter name={admin.personalInfo.name} />
         </div>
       </div>
+      <div>
+        <h3>Dependency Inversion principle</h3>
+        <h4>Принцип инверсий зависимостей</h4>
+        <p>
+          Молуди верхних уровней не должны зависеть от моделей нижних уровней.
+          Оба типа молудей должны зависеть от абстракции. Абстракции не должны
+          зависеть от деталей. Детали должны зависеть от абстракций.
+        </p>
+        <div className="flex">
+          
+        </div>
+      </div>
     </>
   );
 }
