@@ -1,6 +1,13 @@
 # SOLID в контексте React
 
-<hr>
+1. <a href="#part1">Single Responsibility Principle</a>
+2. <a href="#part2">Open/Closed Principle</a>
+3. <a href="#part3">Liskov Substitution Principle</a>
+4. <a href="#part4">Interface Segregation Principle</a>
+5. <a href="#part5">Dependency Inversion Principle</a>
+
+
+<hr id="part1">
 
 ## Single Responsibility Principle (SRP) - Принцип единой ответсвенности
 
@@ -21,7 +28,7 @@
 
 <p># <b>Просто и кратко:</b> Одна сущность отвечать только за одну операцию.</p>
   
-<hr>
+<hr id="part2">
 
 ## Open/Closed Principle - Принцип открытости/закрытости
 
@@ -56,7 +63,7 @@
 
 <p># <b>Просто и кратко:</b> Делаем большие компоненты из маленьких. </p>
 
-<hr>
+<hr id="part3">
 
 ## Liskov Substitution Principle - Принцип потсановки Лисков
 
@@ -73,7 +80,7 @@
 
 <p># <b>Просто и кратко:</b> Согласованность при использовании компонентов одного типа. </p>
 
-<hr>
+<hr id="part4">
 
 ## Interface Segregation Principle (ISP) - Принцип разделения инерфейсов
 
@@ -92,7 +99,7 @@
 
 <p># <b>Просто и кратко:</b> React-компоненты не должны зависеть от пропсов, которые они не используют.</p>
 
-<hr>
+<hr id="part5">
 
 ## Dependency Inversion Principle - Принцип инверсий зависимостей
 
