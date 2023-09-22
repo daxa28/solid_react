@@ -6,19 +6,26 @@ type Todo = {
   title: string;
 };
 
-function TodoList() {
-  const [todos, setTodos] = useState<Todo[] | []>([]);
+interface TodoListAfterTwoProps {
+  onSubmit: () => Promise<any>;
+}
 
+const ConnectedTodoListAfterTwo = () => {
   async function getTodos() {
     const res = await axios.get(
       "https://jsonplaceholder.typicode.com/todos?_limit=5"
     );
     return res.data;
   }
+  return <TodoListAfterTwo onSubmit={getTodos} />;
+};
+
+const TodoListAfterTwo: React.FC<TodoListAfterTwoProps> = ({ onSubmit }) => {
+  const [todos, setTodos] = useState<Todo[] | []>([]);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    getTodos().then((data) => setTodos(data));
+    onSubmit().then((data: Todo[]) => setTodos(data));
   };
 
   return (
@@ -39,6 +46,6 @@ function TodoList() {
       </div>
     </div>
   );
-}
+};
 
-export default TodoList;
+export default ConnectedTodoListAfterTwo;

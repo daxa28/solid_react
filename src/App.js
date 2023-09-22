@@ -7,6 +7,10 @@ import ButtonBefore from "./l_liskov_substitution_principle/After";
 import ButtonAfter from "./l_liskov_substitution_principle/After";
 import DisplayPersonNameBefore from "./i_interface_segregation_principle/Before";
 import DisplayPersonNameAfter from "./i_interface_segregation_principle/After";
+import TodoList from "./d_dependency_inversion_principle/Before";
+import axios from "axios";
+import TodoListAfterOne from "./d_dependency_inversion_principle/After1";
+import ConnectedTodoListAfterTwo from "./d_dependency_inversion_principle/After2";
 
 function App() {
   const [user] = useState({ name: "Dasha", age: 22 });
@@ -17,6 +21,13 @@ function App() {
 
   function consoleText() {
     console.log("Hello");
+  }
+
+  async function getTodos() {
+    const res = await axios.get(
+      "https://jsonplaceholder.typicode.com/todos?_limit=5"
+    );
+    return res.data;
   }
 
   return (
@@ -71,7 +82,7 @@ function App() {
           <DisplayPersonNameAfter name={admin.personalInfo.name} />
         </div>
       </div>
-      <div>
+      <div id="dependency_inversion" className="block">
         <h3>Dependency Inversion principle</h3>
         <h4>Принцип инверсий зависимостей</h4>
         <p>
@@ -80,7 +91,9 @@ function App() {
           зависеть от деталей. Детали должны зависеть от абстракций.
         </p>
         <div className="flex">
-          
+          <TodoList />
+          <TodoListAfterOne onSubmit={getTodos}/>
+          <ConnectedTodoListAfterTwo />
         </div>
       </div>
     </>

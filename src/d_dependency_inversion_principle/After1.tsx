@@ -1,4 +1,3 @@
-import axios from "axios";
 import React, { useState } from "react";
 
 type Todo = {
@@ -6,19 +5,16 @@ type Todo = {
   title: string;
 };
 
-function TodoList() {
-  const [todos, setTodos] = useState<Todo[] | []>([]);
+interface TodoListAfterOneProps {
+  onSubmit: () => Promise<any>;
+}
 
-  async function getTodos() {
-    const res = await axios.get(
-      "https://jsonplaceholder.typicode.com/todos?_limit=5"
-    );
-    return res.data;
-  }
+const TodoListAfterOne: React.FC<TodoListAfterOneProps> = ({ onSubmit }) => {
+  const [todos, setTodos] = useState<Todo[] | []>([]);
 
   const handleSubmit: React.FormEventHandler<HTMLFormElement> = (event) => {
     event.preventDefault();
-    getTodos().then((data) => setTodos(data));
+    onSubmit().then((data: Todo[]) => setTodos(data));
   };
 
   return (
@@ -39,6 +35,6 @@ function TodoList() {
       </div>
     </div>
   );
-}
+};
 
-export default TodoList;
+export default TodoListAfterOne;
