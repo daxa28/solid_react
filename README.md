@@ -1,5 +1,7 @@
 # SOLID в контексте React
 
+SOLID — это аббревиатура, каждая буква которой представляет один из пяти принципов проектирования, а именно:
+
 1. <a href="#part1">Single Responsibility Principle</a>
 2. <a href="#part2">Open/Closed Principle</a>
 3. <a href="#part3">Liskov Substitution Principle</a>
